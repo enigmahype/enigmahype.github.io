@@ -217,6 +217,8 @@
     function start_otp() {
       var page_content  = '<h1>One-Time Pad Encoder/Decoder In Javascript</h1>';
       page_content += '</textarea></p></div><div id="otp_panel"><p>Input:<br /><textarea id="input">99113 59099 11290</textarea></p><p>OTP:<br /><textarea id="otp">00000 00000 00000</textarea></p><p><input type="button" value="Encrypt" onclick="encrypt();" /> <input type="button" value="Decrypt" onclick="decrypt();" /> <input type="button" value="Generate Pseudorandom OTP" onclick="random_otp();" /></p><p>Output:<br /><textarea id="output"></textarea></p></div>';
+      page_content += '<h3>Encoding</h3><ol><li>Put your codebook into the <em>Codebook:</em> field, or use the default.</li><li>Put your plaintext message into the <em>Input:</em> field.</li><li>Put your key into the <em>OTP:</em> field. Each key must be securely generated, known only to the communicating parties, and never be reused.</li><li>Press the <strong>Encrypt</strong> button. Your ciphertext appears in the <em>Output:</em> box.</li></ol>';
+      page_content += '<h3>Decoding</h3><ol><li>Put your codebook into the <em>Codebook:</em> field, or use the default.</li><li>Put the encrypted message into the <em>Input:</em> field.</li><li>Put your key into the <em>OTP:</em> field. The key must be identical to the one used by the message sender.</li><li>Press the <strong>Decrypt</strong> button. Your plaintext appears in the <em>Output:</em> box. In some cases, this will be padded with trailing zeroes (0) as a result of the algorithm used.</li></ol>';
       document.body.innerHTML = page_content;
     }
       
