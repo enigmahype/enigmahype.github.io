@@ -109,7 +109,7 @@
       }
       document.getElementById('otp').value = otp;
       if(!random_otp_warning_given) {
-        alert('A pseudorandom OTP has been generated. THIS IS NOT SUITABLE FOR ACTUAL CRYPTOGRAPHIC USE');
+        alert('A pseudorandom OTP has been generated, but I strongly advise to not use that.');
         random_otp_warning_given = true;
       }
     }
@@ -174,11 +174,11 @@
       var otp = document.getElementById('otp').value.replace(/[ \n]/g, '');
       // load vars and sanity check
       if (!input.match(/^[0-9]+$/)) {
-        alert('Invalid input supplied. Input should consist of one or more numeric digits, usually in blocks of five digits seperated by spaces.')
+        alert('This input is invalid, try again :).')
         return false;
       }
       if (!otp.match(/^[0-9]+$/)) {
-        alert('Invalid OTP specified. OTP should consist of one or more numeric digits, usually in blocks of five digits seperated by spaces.')
+        alert('Invalid OTP. OTP should consist of one or more numeric digits, usually in blocks of five digits seperated by spaces.')
         return false;
       }
       // check otp length
@@ -215,6 +215,7 @@
       }
       // display output
       document.getElementById('output').value = output_denum;
+    }
     }
     
     
