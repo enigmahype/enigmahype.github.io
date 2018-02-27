@@ -193,14 +193,16 @@
         if(num > 9) num -= 10
         output += num;
       }
-      
+      var decode_chars_new = new Array();
+      var decode_chars_new = decode_chars;
       // denumeralise
+      decode_chars_new[i] = decode_chars[i];
       var output_denum = '';
       var pos = 0;
       var len = 1;
       while(pos + len <= output.length) {
         var chars = output.substr(pos,len);
-        if((decode_char = decode_chars[chars]) != undefined) {
+        if((decode_char = decode_chars_new[chars]) != undefined) {
           output_denum += decode_char;
           pos += len;
           len = 1;
