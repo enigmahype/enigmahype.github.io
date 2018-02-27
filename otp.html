@@ -200,7 +200,7 @@
       var len = 1;
       while(pos + len <= output.length) {
         var chars = output.substr(pos,len);
-        if(decode_char != undefined) {
+        if((decode_char = decode_chars) != undefined) {
           output_denum += decode_char;
           pos += len;
           len = 1;
