@@ -220,9 +220,10 @@
     
     function start_otp() {
       var page_content  = '<h1>One-Time Pad Encoder/Decoder In Javascript</h1>;
-      }
       page_content += '</textarea></p></div><div id="otp_panel"><p>Input:<br /><textarea id="input">99113 59099 11290</textarea></p><p>OTP:<br /><textarea id="otp">00000 00000 00000</textarea></p><p><input type="button" value="Encrypt" onclick="encrypt();" /> <input type="button" value="Decrypt" onclick="decrypt();" /> <input type="button" value="Generate Pseudorandom OTP" onclick="random_otp();" /></p><p>Output:<br /><textarea id="output"></textarea></p></div>';
+      document.body.innerHTML = page_content;
     }
+      
  /* ]]> */</script>
  <style type="text/css">
     div#otp_panel {
