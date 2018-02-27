@@ -8,7 +8,11 @@
     encode_chars['I'] = '3';
     encode_chars['N'] = '4';
     encode_chars['O'] = '5';
-    encode_chars['R'] = '6';
+    encode_chars['R'] = '60';
+    encode_chars['Õ'] = '61';
+    encode_chars['Ä'] = '62';
+    encode_chars['Ö'] = '63';
+    encode_chars['Ü'] = '64';
     encode_chars['B'] = '70';
     encode_chars['C'] = '71';
     encode_chars['D'] = '72';
@@ -56,7 +60,11 @@
     decode_chars['3'] = 'I';
     decode_chars['4'] = 'N';
     decode_chars['5'] = 'O';
-    decode_chars['6'] = 'R';
+    encode_chars['60'] = 'R';
+    encode_chars['61'] = 'Ö';
+    encode_chars['62'] = 'Ä';
+    encode_chars['63'] = 'Ö';
+    encode_chars['64'] = 'Ü';
     decode_chars['70'] = 'B';
     decode_chars['71'] = 'C';
     decode_chars['72'] = 'D';
@@ -109,7 +117,7 @@
       }
       document.getElementById('otp').value = otp;
       if(!random_otp_warning_given) {
-        alert('A pseudorandom OTP has been generated, but I strongly advise to not use that.');
+        alert('A pseudorandom OTP has been generated, but I strongly advise not to use that, it is not secure enough.');
         random_otp_warning_given = true;
       }
     }
@@ -144,7 +152,7 @@
       }
       // check otp length
       if ((too_short = numeralise.length - otp.length) > 0) {
-        if(confirm('Your OTP is too short to encode this message (needs ' + too_short + ' more digits). You can continue to encrypt, but your encryption will be imperfect and could be cracked. Do you want to continue?')) {
+        if(confirm('Your OTP is too short to encode, this message (needs ' + too_short + ' more digits). Your encryption will be imperfect and could be cracked. Continue?')) {
           // multiply otp length
           while(otp.length < numeralise.length) otp += otp;
         } else {
@@ -178,7 +186,7 @@
         return false;
       }
       if (!otp.match(/^[0-9]+$/)) {
-        alert('Invalid OTP. OTP should consist of one or more numeric digits, usually in blocks of five digits seperated by spaces.')
+        alert('Invalid OTP. OTP should consist of one or more numbers, usually in blocks of five digits seperated by spaces.')
         return false;
       }
       // check otp length
@@ -222,7 +230,7 @@
     
     
     function start_otp() {
-      var page_content  = '<h1>One-Time Pad Encoder/Decoder In Javascript</h1>';
+      var page_content  = '<h1>OTP(One-Time Pad) Encoder/Decoder</h1>';
       page_content += '</textarea></p></div><div id="otp_panel"><p>Input:<br /><textarea id="input">99113 59099 11290</textarea></p><p>OTP:<br /><textarea id="otp">00000 00000 00000</textarea></p><p><input type="button" value="Encrypt" onclick="encrypt();" /> <input type="button" value="Decrypt" onclick="decrypt();" /> <input type="button" value="Generate Pseudorandom OTP" onclick="random_otp();" /></p><p>Output:<br /><textarea id="output"></textarea></p></div>';
       document.body.innerHTML = page_content;
     }
@@ -242,9 +250,16 @@
     div#otp_panel textarea {
       height: 10 em;
     }
+   body {
+    background-image: url("http://ak5.picdn.net/shutterstock/videos/14888635/thumb/1.jpg");
+    }
+   h1 {
+    color: white;
+    }
   </style>
 </head>
 <body onload="start_otp();">
   Loading OTP.<br />
   If this message doesn't go away, you may need to enable Javascript in your web browser, or perhaps there's a bug. ;-)
 </body>
+</html>
